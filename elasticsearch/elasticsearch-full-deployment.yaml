@@ -40,7 +40,7 @@ spec:
           env:
           - name: ES_JAVA_OPTS
             value: "-Xms2g -Xmx2g"
-    count: 7
+    count: 10
   #   # request 2Gi of persistent data storage for pods in this topology element
     volumeClaimTemplates:
     - metadata:
@@ -65,6 +65,9 @@ spec:
       spec:
         # expose this cluster Service with a LoadBalancer
         type: LoadBalancer
+        loadBalancerSourceRanges:
+          - 192.150.10.200/29
+          - 192.150.10.208/29
   #   tls:
   #     selfSignedCertificate:
   #       # add a list of SANs into the self-signed HTTP certificate
