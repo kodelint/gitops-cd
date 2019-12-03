@@ -40,7 +40,7 @@ spec:
           env:
           - name: ES_JAVA_OPTS
             value: "-Xms2g -Xmx2g"
-    count: 10
+    count: 5
   #   # request 2Gi of persistent data storage for pods in this topology element
     volumeClaimTemplates:
     - metadata:
