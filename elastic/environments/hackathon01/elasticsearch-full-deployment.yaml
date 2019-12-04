@@ -62,6 +62,9 @@ spec:
   #     path: newkey # project a key to a specific path (optional)
   http:
     service:
+      tls:
+        selfSignedCertificate:
+          disable: true
       spec:
         # expose this cluster Service with a LoadBalancer
         type: LoadBalancer
