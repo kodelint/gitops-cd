@@ -31,7 +31,7 @@ spec:
         #     privileged: true
         #   command: ['sh', '-c', 'sysctl -w vm.max_map_count=262144']
         containers:
-        - name: elasticsearch
+        - name: elasticsearch-hackthon-es01
           # specify resource limits and requests
           resources:
             limits:
@@ -44,7 +44,7 @@ spec:
   #   # request 2Gi of persistent data storage for pods in this topology element
     volumeClaimTemplates:
     - metadata:
-        name: elasticsearch-data
+        name: elasticsearch-hackthon-es01-data
       spec:
         accessModes:
         - ReadWriteOnce
