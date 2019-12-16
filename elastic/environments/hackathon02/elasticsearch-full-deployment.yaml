@@ -6,7 +6,7 @@ metadata:
 spec:
   version: 6.8.0
   nodeSets:
-  - name: hackthon-es02
+  - name: hackthon-es
     config:
       # most Elasticsearch configuration parameters are possible to set, e.g:
       node.attr.attr_name: attr_value
@@ -20,7 +20,7 @@ spec:
       metadata:
         labels:
           # additional labels for pods
-          name: elasticsearch02
+          name: elasticsearch
       spec:
         # this changes the kernel setting on the node to allow ES to use mmap
         # if you uncomment this init container you will likely also want to remove the
@@ -44,7 +44,7 @@ spec:
   #   # request 2Gi of persistent data storage for pods in this topology element
     volumeClaimTemplates:
     - metadata:
-        name: elasticsearch02-data
+        name: elasticsearch-data
       spec:
         accessModes:
         - ReadWriteOnce
