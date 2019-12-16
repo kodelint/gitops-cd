@@ -16,8 +16,8 @@ if [[ "$1" == 'create_all' ]]; then
   export PASSWORD01=(kubectl -n es get secret elasticsearch01-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode)
   export PASSWORD02=(kubectl -n es get secret elasticsearch02-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode)
   ============================================================================================================================="
-  echo 'curl -skX GET "https://$ES_HOST01:9200/_cat/nodes?v" -u "elastic:$PASSWORD01"'
-  echo 'curl -skX GET "https://$ES_HOST02:9200/_cat/nodes?v" -u "elastic:$PASSWORD02"'
+  echo 'watch curl -skX GET "https://$ES_HOST01:9200/_cat/nodes?v" -u "elastic:$PASSWORD01"'
+  echo 'watch curl -skX GET "https://$ES_HOST02:9200/_cat/nodes?v" -u "elastic:$PASSWORD02"'
 fi
 
 
