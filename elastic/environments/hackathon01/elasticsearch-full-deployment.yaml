@@ -2,7 +2,7 @@
 apiVersion: elasticsearch.k8s.elastic.co/v1beta1
 kind: Elasticsearch
 metadata:
-  name: elasticsearch
+  name: elasticsearch01
 spec:
   version: 7.4.0
   nodeSets:
