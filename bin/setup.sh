@@ -27,5 +27,5 @@ export PASSWORD02=(kubectl -n es get secret elasticsearch02-es-elastic-user -o=j
 =============================================================================================================================
 "
 
-echo 'curl -skX GET "$ES_HOST01:9200/_cat/nodes?v" -u "elastic:$PASSWORD01"'
-echo 'curl -skX GET "$ES_HOST02:9200/_cat/nodes?v" -u "elastic:$PASSWORD02"'
+echo 'curl -skX GET "https://$ES_HOST01:9200/_cat/nodes?v" -u "elastic:$PASSWORD01"'
+echo 'curl -skX GET "https://$ES_HOST02:9200/_cat/nodes?v" -u "elastic:$PASSWORD02"'
