@@ -63,7 +63,7 @@ spec:
   http:
     tls:
       selfSignedCertificate:
-        disable: true
+        disable: false
     service:
       spec:
         # expose this cluster Service with a LoadBalancer
