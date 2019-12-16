@@ -62,8 +62,8 @@ spec:
   #     path: newkey # project a key to a specific path (optional)
   http:
     tls:
-      selfSignedCertificate:
-        disable: true
+      certificate:
+        secretName: adobe-dev-es
     service:
       spec:
         # expose this cluster Service with a LoadBalancer
