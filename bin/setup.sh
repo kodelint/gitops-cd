@@ -13,3 +13,19 @@ if [[ "$1" == 'delete' ]]; then
     argocd app $1 $app
   done
 fi
+
+echo "Lets wait for sometime to get the service populated...."
+
+sleep 5
+
+echo "Export the following...
+=============================================================================================================================
+export ES_HOST01=(kubectl -n es get service/elasticsearch01-es-http -o=jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+export ES_HOST02=(kubectl -n es get service/elasticsearch02-es-http -o=jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+export PASSWORD01=(kubectl -n es get secret elasticsearch01-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode)
+export PASSWORD02=(kubectl -n es get secret elasticsearch02-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode)
+=============================================================================================================================
+"
+
+echo 'curl -skX GET "$ES_HOST01:9200/_cat/nodes?v" -u "elastic:$PASSWORD01"'
+echo 'curl -skX GET "$ES_HOST02:9200/_cat/nodes?v" -u "elastic:$PASSWORD02"'
